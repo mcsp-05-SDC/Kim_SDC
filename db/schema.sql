@@ -18,7 +18,7 @@ CREATE TABLE item(
     material text,
     features text,
     cleaning text,
-    shipop text,
+    shipop text, 
     shipdet text,
     shipret text,
     qna text,

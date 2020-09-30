@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-export default class App extends Component {
+export default class Detail extends Component {
     constructor(props) {
       super(props);    
       this.state = { 
@@ -15,6 +15,7 @@ export default class App extends Component {
     }
     
   
+
   
     
     
@@ -23,7 +24,7 @@ export default class App extends Component {
     
       return (
         
-            <div id={"detailinfo"}>
+            <div className={this.props.class}>
               <div id={"specifications"} style= {{"float": "left", "padding": "1em"}}>
                 <div id={"name"} className={"spec"}>Product Name:{}</div>
                 <hr/>
