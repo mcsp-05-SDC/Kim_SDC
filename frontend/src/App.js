@@ -11,6 +11,9 @@ export default class App extends Component {
           detail: "show",
           ship: "hide",
           question: "hide",
+          id: 10,
+          prodInfo: null
+
       
       };     
   }
@@ -31,6 +34,18 @@ export default class App extends Component {
     this.setState({detail: "hide"})
     this.setState({ship: "hide"})
   }
+
+  getOne(e){
+    const id= this.state.id;
+    fetch('/item/'+id)
+    .then((res)=>{
+      return res.json();
+    }).then((data)=>{
+      this.setState({prodInfo: data[0]})
+      console.log(data[0]);
+    })
+
+  }
   
   componentDidMount(){  
    
@@ -40,6 +55,7 @@ export default class App extends Component {
   
     return (
       <div className={'item-details'}>
+      <button type={"submit"} value={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
         <h2>About this item </h2>
         <div className={"product-tabs"}>
           <div className={"tabs"}>
@@ -48,9 +64,9 @@ export default class App extends Component {
             <div className={"tab"}  onClick={this.clickQuestion.bind(this)}>Q&A</div>
           </div>
           <hr/>
-         <Detail  class={this.state.detail} />
-         <Shipping  class={this.state.ship}/>
-         <Question  class={this.state.question}/>
+         <Detail  class={this.state.detail} product={this.state.prodInfo} />
+         <Shipping  class={this.state.ship} product={this.state.prodInfo}/>
+         <Question  class={this.state.question} product={this.state.prodInfo}/>
         </div>        
       </div>
     );
