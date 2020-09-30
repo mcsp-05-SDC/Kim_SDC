@@ -14,8 +14,16 @@ const morgan = require('morgan');
 app.use(morgan("short"));
 
 app.use(express.static(path.join(__dirname, "./frontend/build")));
-
-app.get("", (req, res) => {
+//get single item
+app.get("/item/:id", (req, res) => {
+  var id= req.params.id;
+  db.query('SELECT * FROM item WHERE prodid=$1',[id], (err, data)=>{
+    if(err){
+      res.status(500).send("product doesnt exist");
+    }else{
+      res.json(data.rows);
+    }
+  })
   
  });
 app.listen(PORT, () => {
