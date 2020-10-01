@@ -15,14 +15,14 @@ export default class App extends Component {
           prodInfo: null,
           detailS: "selected",
           shipS:"unselected",
-          questionS:"unselected"
-
+          questionS:"unselected",
+          
       
       };     
   }
   
 // add method for each tab click
-  clickDetail(e){
+  clickDetail(){
     this.setState({detail: "show"})
     this.setState({ship: "hide"})
     this.setState({question: "hide"})
@@ -30,7 +30,7 @@ export default class App extends Component {
     this.setState({shipS:"unselected"})
     this.setState({questionS: "unselected"})
   }
-  clickShip(e){
+  clickShip(){
     this.setState({ship: "show"})
     this.setState({detail: "hide"})
     this.setState({question: "hide"})
@@ -38,7 +38,7 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({questionS: "unselected"})
   }
-  clickQuestion(e){
+  clickQuestion(){
     this.setState({question: "show"})
     this.setState({detail: "hide"})
     this.setState({ship: "hide"})
@@ -46,6 +46,7 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({shipS: "unselected"})
   }
+  
 
   getOne(e){
     const id= this.state.id;
