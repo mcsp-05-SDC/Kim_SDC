@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 export default class Question extends Component {
     constructor(props) {
@@ -15,16 +15,24 @@ export default class Question extends Component {
     
     
     render() {
+      let question;
+      if(this.props.product===null){
+        question= <div></div>
+      }else{
+        question=<div className={this.props.class}>
+        <div id={"questionNAnswer"}><b>Question and Answers</b> </div>
+        <div id={"qna"}>{this.props.product.qna}</div>
+      
+
+    </div>
+
+      }
    
     
-      return (
-        
-            <div className={this.props.class}>
-                <div id={"questionNAnswer"}>Question and Answers </div>
-                <div id={"qna"}>{this.state.qna}</div>
-              
-  
-            </div>
+      return (        
+            <Fragment>
+              {question}
+            </Fragment>
        
       );
     }  

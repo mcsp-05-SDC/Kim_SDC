@@ -25,8 +25,43 @@
     justify-content: center;
 }
 .tab{
+    color: rgb(102, 102, 102);
     font-size: 16px;
     width: 200px;
-    height: 25px;
+    height: 40px;
+}
+.selected{
+    text-decoration: none;
+}
+.selected{
+    box-sizing: border-box;
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid rgb(204, 0,0);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+button{
+    outline: none;
+}
+.selected:hover,.selected:focus{
+    border: dotted;
+    border-bottom: 3px solid rgb(204, 0,0);
+    text-decoration: underline;
+}
+
+.unselected{
+    font-weight: bold;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
 }
 

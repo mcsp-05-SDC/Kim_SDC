@@ -22,18 +22,18 @@ export default class Detail extends Component {
       }else{
         details= <div className={this.props.class}>
         <div id={"specifications"} style= {{"float": "left", "padding": "1em"}}>
-          <div id={"name"} className={"spec"}>Product Name:{this.props.product.name}</div>
+          <div id={"name"} className={"spec"}><b>Product Name:</b> {this.props.product.name}</div>
           <hr/>
-          <div id={"size"} className={"spec"}>Size:{this.props.product.size}</div>
+          <div id={"size"} className={"spec"}><b>Size:</b> {this.props.product.size}</div>
           <hr/>
-          <div id={"material"} className={"spec"}>Material:{this.props.product.material}</div>
+          <div id={"material"} className={"spec"}><b>Material:</b> {this.props.product.material}</div>
           <hr/>
-          <div id={"features"} className={"spec"}>Features:{this.props.product.features}</div>
+          <div id={"features"} className={"spec"}><b>Features:</b> {this.props.product.features}</div>
           <hr/>
-          <div id={"cleaning"} className={"spec"}>Cleaning:{this.props.product.cleaning}</div>
+          <div id={"cleaning"} className={"spec"}><b>Cleaning:</b> {this.props.product.cleaning}</div>
 
         </div>
-        <div id={"description"} style= {{"float": "left", "padding": "1em"}}>Description:{this.props.product.description}</div>
+        <div id={"description"} style= {{"float": "left", "padding": "1em"}}><b>Description:</b> {this.props.product.description}</div>
 
       </div>
       }
