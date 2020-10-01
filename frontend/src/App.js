@@ -66,6 +66,7 @@ export default class App extends Component {
  
   
     return (
+      <div id={"contain"}>
       <div className={'item-details'}>
       <button type={"submit"} value={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
         <h2>About this item </h2>
@@ -76,9 +77,9 @@ export default class App extends Component {
             <button  type={"button"} className={this.state.questionS} onClick={this.clickQuestion.bind(this)}><div className={"tab"}  >Q&A</div></button>
           </div>
          <hr/>
-         <Detail  class={this.state.detail} product={this.state.prodInfo} />
-         <Shipping  class={this.state.ship} product={this.state.prodInfo}/>
-         <Question  class={this.state.question} product={this.state.prodInfo}/>
+         </div>
+         <Detail classD={this.state.detail} classS={this.state.ship} classQ={this.state.question}product={this.state.prodInfo} />
+       
         </div>        
       </div>
     );
