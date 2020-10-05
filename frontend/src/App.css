@@ -68,6 +68,14 @@ hr{
     font-size: 14px;
    
 }
+#show{
+  
+    border-radius: 5px;
+    width: 100px;
+    float: left;
+    font-size: 12px;
+    animation-duration: 500ms;
+}
 .show{
     font-size: 14px;
     width:100%;

@@ -7,14 +7,14 @@ export default class Detail extends Component {
       super(props);    
       this.state = { 
         show: true,
-        buttonshow: "Show More.."
+        
         
         };     
     }
     
     clickShow(){
       this.setState({show: !this.state.show})
-      this.setState({buttonshow: "Show Less..."})
+      
     }
 
   
@@ -25,7 +25,7 @@ export default class Detail extends Component {
       let details;
       if(this.props.product=== null){
         details= <div></div>
-      }else if(this.props.product !== null && this.state.show===false){
+      }else if(this.props.product !== null && this.props.show===false){
         details= 
         <Fragment>
         <div className={this.props.classD}>
@@ -47,7 +47,7 @@ export default class Detail extends Component {
           <Question  class={this.props.classQ} product={this.props.product}/>
       </Fragment>
  
-      }else if(this.props.product !== null && this.state.show===true){
+      }else if(this.props.product !== null && this.props.show===true){
         console.log("")
         details= 
         <Fragment>
@@ -67,11 +67,13 @@ export default class Detail extends Component {
       </Fragment>
 
       }
+
+     
     
       return (
         <div id={"tabcontent"}> 
         {details}
-        <button type={"submit"} id={"show"}  className={this.props.classD} onClick={this.clickShow.bind(this)}>{this.state.buttonshow}</button>
+        
         </div>
         
            
