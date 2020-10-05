@@ -38,7 +38,8 @@ INSERT INTO item(name,prodid,size,material,features,cleaning,shipop,shipdet,ship
 'Dimensions:2 3/4" diameter (base) x 7 3/4" H (pedestal) x 4 1/4" diameter (top). (2 1/4 lbs.)',
 'This item can be returned to any Target store or Target.com.This item must be returned within 365 days of the in-store purchase,ship date or online order pickup. See return policy for details.See the return policy for complete information.',
 '0',
-'Winner of a European Design award, this is the cordless table lamp sought by resorts in Dubai and Monte Carlo for the 66 hours of light it yields from just a 1 1/2-hour charge of its NiMH battery. Designed and handcrafted in Stuttgart, Germany, the lamp’s sleek, minimalist design parallels a table’s form while LED arrays installed into the underside of its “shade” cast light downward to provide ambient illumination. An infrared remote changes the LEDs to 16 different colors. Light runs for 66 hours on low setting without color changing, and 12-20 hours on high setting with color changes.');
+'Winner of a European Design award, this is the cordless table lamp sought by resorts in Dubai and Monte Carlo for the 66 hours of light it yields from just a 1 1/2-hour charge of its NiMH battery. ');
+
 
 INSERT INTO item(name,prodid,size,material,features,cleaning,shipop,shipdet,shipret,qna,description) VALUES 
 ('Valentino White Shirt',

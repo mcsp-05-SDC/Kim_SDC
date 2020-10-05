@@ -51,14 +51,15 @@ export default class App extends Component {
   }
   
 
-  getOne(e){
+  getOne(){
     const id= this.state.id;
     fetch('/item/'+id)
     .then((res)=>{
+      console.log(res);
       return res.json();
     }).then((data)=>{
       this.setState({prodInfo: data[0]})
-      console.log(data[0]);
+      
     })
 
   }
