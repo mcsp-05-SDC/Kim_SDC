@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
 import Detail from './Detail-tab'
-import Shipping from './Shipping-tab'
-import Question from './Question-tab'
+
 
 export default class App extends Component {
   constructor(props) {
@@ -15,14 +14,15 @@ export default class App extends Component {
           prodInfo: null,
           detailS: "selected",
           shipS:"unselected",
-          questionS:"unselected"
-
+          questionS:"unselected",
+          buttonshow:true,
+          
       
       };     
   }
   
 // add method for each tab click
-  clickDetail(e){
+  clickDetail(){
     this.setState({detail: "show"})
     this.setState({ship: "hide"})
     this.setState({question: "hide"})
@@ -30,7 +30,7 @@ export default class App extends Component {
     this.setState({shipS:"unselected"})
     this.setState({questionS: "unselected"})
   }
-  clickShip(e){
+  clickShip(){
     this.setState({ship: "show"})
     this.setState({detail: "hide"})
     this.setState({question: "hide"})
@@ -38,7 +38,7 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({questionS: "unselected"})
   }
-  clickQuestion(e){
+  clickQuestion(){
     this.setState({question: "show"})
     this.setState({detail: "hide"})
     this.setState({ship: "hide"})
@@ -46,6 +46,10 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({shipS: "unselected"})
   }
+  showMore(){
+    this.setState({buttonshow: !this.state.buttonshow})
+  }
+  
 
   getOne(e){
     const id= this.state.id;
@@ -63,12 +67,17 @@ export default class App extends Component {
    
   }
   render() {
- 
+    let buttonText;
+    if(this.state.buttonshow===true){
+      buttonText=<button type={"submit"} id={"show"}  className={this.state.detail} onClick={this.showMore.bind(this)}>Show More</button>
+    }else{
+      buttonText=<button type={"submit"} id={"show"}  className={this.state.detail} onClick={this.showMore.bind(this)}>Show Less</button>
+    }
   
     return (
       <div id={"contain"}>
       <div className={'item-details'}>
-      <button type={"submit"} value={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
+      <button type={"submit"} value={"temp"} id={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
         <h2>About this item </h2>
         <div className={"product-tabs"}>
           <div className={"tabs"}>
@@ -78,8 +87,8 @@ export default class App extends Component {
           </div>
          <hr/>
          </div>
-         <Detail classD={this.state.detail} classS={this.state.ship} classQ={this.state.question}product={this.state.prodInfo} />
-       
+         <Detail show={this.state.buttonshow} classD={this.state.detail} classS={this.state.ship} classQ={this.state.question}product={this.state.prodInfo} />
+        {buttonText}
         </div>        
       </div>
     );
