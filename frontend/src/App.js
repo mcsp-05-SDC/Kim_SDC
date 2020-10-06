@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // import logo from './logo.svg';
 import Detail from './Detail-tab'
+import ProdImg from './ProdImg'
 
 
 export default class App extends Component {
@@ -76,6 +77,8 @@ export default class App extends Component {
     }
   
     return (
+      <div>
+        <ProdImg product={this.state.prodInfo} />
       <div id={"contain"}>
       <div className={'item-details'}>
       <button type={"submit"} value={"temp"} id={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
@@ -91,6 +94,7 @@ export default class App extends Component {
          <Detail show={this.state.buttonshow} classD={this.state.detail} classS={this.state.ship} classQ={this.state.question}product={this.state.prodInfo} />
         {buttonText}
         </div>        
+      </div>
       </div>
     );
   }  
