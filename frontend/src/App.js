@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 // import logo from './logo.svg';
 import Detail from './Detail-tab'
 import ProdImg from './ProdImg'
+
 
 
 export default class App extends Component {
@@ -56,7 +57,7 @@ export default class App extends Component {
     const id= this.state.id;
     fetch('/item/'+id)
     .then((res)=>{
-      console.log(res);
+      
       return res.json();
     }).then((data)=>{
       this.setState({prodInfo: data[0]})
@@ -75,13 +76,15 @@ export default class App extends Component {
     }else{
       buttonText=<button type={"submit"} id={"show"}  className={this.state.detail} onClick={this.showMore.bind(this)}>Show Less</button>
     }
-  
-    return (
-      <div>
-        <ProdImg product={this.state.prodInfo} />
+    let display;
+    if(this.state.prodInfo===null){
+      display=  <button type={"submit"} value={"temp"} id={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
+
+    }else{
+      display= <Fragment> <ProdImg product={this.state.prodInfo} />
       <div id={"contain"}>
       <div className={'item-details'}>
-      <button type={"submit"} value={"temp"} id={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
+      
         <h2>About this item </h2>
         <div className={"product-tabs"}>
           <div className={"tabs"}>
@@ -91,10 +94,16 @@ export default class App extends Component {
           </div>
          <hr/>
          </div>
-         <Detail show={this.state.buttonshow} classD={this.state.detail} classS={this.state.ship} classQ={this.state.question}product={this.state.prodInfo} />
+         <Detail show={this.state.buttonshow} classD={this.state.detail} classS={this.state.ship} classQ={this.state.question} product={this.state.prodInfo} />
         {buttonText}
         </div>        
       </div>
+      </Fragment>
+    }
+  
+    return (
+      <div id={"main"}>
+       {display}
       </div>
     );
   }  
