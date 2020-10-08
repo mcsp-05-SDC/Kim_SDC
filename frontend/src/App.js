@@ -12,7 +12,7 @@ export default class App extends Component {
           detail: "show",
           ship: "hide",
           question: "hide",
-          id: 10,
+          id: " ",
           prodInfo: null,
           detailS: "selected",
           shipS:"unselected",
@@ -20,7 +20,8 @@ export default class App extends Component {
           buttonshow:true,
           
       
-      };     
+      }; 
+      
   }
   
 // add method for each tab click
@@ -53,20 +54,31 @@ export default class App extends Component {
   }
   
 
-  getOne(){
-    const id= this.state.id;
-    fetch('/item/'+id)
-    .then((res)=>{
-      
-      return res.json();
-    }).then((data)=>{
-      this.setState({prodInfo: data[0]})
-      
-    })
-
-  }
+  
   
   componentDidMount(){  
+    const buttonElement = document.getElementById('button');
+    const inputBox = document.getElementById('searchbar')
+    // inputBox.addEventListener('input', function(event){
+    //   console.log(this.value);
+    // })
+      const self=this;
+    buttonElement.addEventListener('click', function (event) {
+      
+      
+        const id= inputBox.value
+        fetch('/item/'+id)
+        .then((res)=>{
+          
+          return res.json();
+        }).then((data)=>{
+          self.setState({prodInfo: data[0]})
+          
+        })
+    
+      
+   
+});
    
   }
   render() {
@@ -78,7 +90,7 @@ export default class App extends Component {
     }
     let display;
     if(this.state.prodInfo===null){
-      display=  <button type={"submit"} value={"temp"} id={"temp"} onClick={this.getOne.bind(this)}>TEMP</button>
+      display=  <div></div>
 
     }else{
       display= <Fragment> <ProdImg product={this.state.prodInfo} />

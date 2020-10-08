@@ -23,10 +23,10 @@ app.get('/itemdetail', (req, res) => {
 
 
 
-app.get("item/:id", (req, res) => {
+app.get("/item/:id", cors(), (req, res) => {
   var id= req.params.id;
   console.log("hi")
-  db.query('SELECT * FROM item WHERE prodid=$1',[id], (err, data)=>{
+  db.query('SELECT * FROM item WHERE name=$1',[id], (err, data)=>{
     
     if(err){      
       res.status(500).send("product doesnt exist");
