@@ -21,6 +21,7 @@ export default class Detail extends Component {
     
     
     render() {
+      //conditional render depending on whether the state for the button show more show less is clicked
    
       let details;
       if(this.props.product=== null){

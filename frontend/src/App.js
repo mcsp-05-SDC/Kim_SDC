@@ -25,6 +25,7 @@ export default class App extends Component {
   }
   
 // add method for each tab click
+//when you click detail it shows only the detail information
   clickDetail(){
     this.setState({detail: "show"})
     this.setState({ship: "hide"})
@@ -33,6 +34,7 @@ export default class App extends Component {
     this.setState({shipS:"unselected"})
     this.setState({questionS: "unselected"})
   }
+  //when you click shipping it only shows the shipping information
   clickShip(){
     this.setState({ship: "show"})
     this.setState({detail: "hide"})
@@ -41,6 +43,7 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({questionS: "unselected"})
   }
+  //when you click shipping it only shows the qna information
   clickQuestion(){
     this.setState({question: "show"})
     this.setState({detail: "hide"})
@@ -49,6 +52,7 @@ export default class App extends Component {
     this.setState({detailS:"unselected"})
     this.setState({shipS: "unselected"})
   }
+  //makes the detail tab show more information and less when clicked.
   showMore(){
     this.setState({buttonshow: !this.state.buttonshow})
   }
@@ -57,12 +61,13 @@ export default class App extends Component {
   
   
   componentDidMount(){  
+
+    //event listener for the name being typed in and the submit button being clicked
     const buttonElement = document.getElementById('button');
     const inputBox = document.getElementById('searchbar')
-    // inputBox.addEventListener('input', function(event){
-    //   console.log(this.value);
-    // })
+    //self var pound to the app page this
       const self=this;
+
     buttonElement.addEventListener('click', function (event) {
       
       
@@ -82,12 +87,14 @@ export default class App extends Component {
    
   }
   render() {
+    //show more show less button conditional render button
     let buttonText;
     if(this.state.buttonshow===true){
       buttonText=<button type={"submit"} id={"show"}  className={this.state.detail} onClick={this.showMore.bind(this)}>Show More</button>
     }else{
       buttonText=<button type={"submit"} id={"show"}  className={this.state.detail} onClick={this.showMore.bind(this)}>Show Less</button>
     }
+    //conditional render for either empty div or content based off of the state
     let display;
     if(this.state.prodInfo===null){
       display=  <div></div>
