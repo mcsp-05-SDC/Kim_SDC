@@ -16,6 +16,6 @@ PRIMARY KEY (id)
 )
 
 COPY persons(first_name, last_name, dob, email)
-FROM 'C:/Users/jsick/db/persons.csv
+FROM 'C:/Users/jsick/db/persons.csv'
 DELIMITER ','
 CSV HEADER;
